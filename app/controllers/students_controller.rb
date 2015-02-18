@@ -35,7 +35,7 @@ class StudentsController < ApplicationController
 
   def update
     @student.update(student_params)
-    respond_with(@course)
+    redirect_to(:back)
   end
 
   def destroy
