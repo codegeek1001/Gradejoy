@@ -13,14 +13,13 @@ Gradejoy::Application.routes.draw do
 
   resources :course_enrollments
 
-  get "about" => "pages#about"
-  get "contact" => "pages#contact"
-  get "help" => "pages#help"
-  get "privacy" => "pages#privacy"
-  get "terms" => "pages#terms"
-  get "account" => "pages#account"
+  get "about" =>         "pages#about"
+  get "contact" =>       "pages#contact"
+  get "help" =>          "pages#help"
+  get "privacy" =>       "pages#privacy"
+  get "terms" =>         "pages#terms"
+  get "account" =>       "pages#account"
   get "communication" => "pages#communication"
-  get "nojs" => "pages#nojs"
 
   root "pages#index"
 
@@ -41,6 +40,8 @@ Gradejoy::Application.routes.draw do
   get "courses/:id/grades/:assignment_id/:student_id/edit(.:format)", to: "grades#edit"
 
   patch "courses/:id/grades/:assignment_id/:student_id/update(.:format)", to: "grades#update"
+
+  get '/robots.:format' => 'pages#robots'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

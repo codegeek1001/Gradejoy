@@ -23,7 +23,8 @@ class PagesController < ApplicationController
   def account
   end
 
-  def nojs
+  def robots
+    respond_to :text
   end
 
 end
