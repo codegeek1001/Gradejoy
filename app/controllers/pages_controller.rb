@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  respond_to :html, :json, :js
   def about
   end
 
