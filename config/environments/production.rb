@@ -31,7 +31,6 @@ Gradejoy::Application.configure do
 
   # Generate digests for assets URLs.
   config.assets.digest = true
-  config.assets.enabled = true
 
   # Version of your assets, change this if you want to expire all your assets.
   config.assets.version = '1.0'
@@ -41,7 +40,7 @@ Gradejoy::Application.configure do
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for nginx
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-  # config.force_ssl = true
+  config.force_ssl = false
 
   # Set to :debug to see everything in the log.
   config.log_level = :info
@@ -81,7 +80,7 @@ Gradejoy::Application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.default_url_options = { host: 'http://gradejoy.com' }
   config.lograge.enabled = true
-  
+
   ActionMailer::Base.smtp_settings = {
     :address        => 'smtp.sendgrid.net',
     :port           => '587',
