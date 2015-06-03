@@ -17,6 +17,7 @@ gem 'jbuilder'
 gem 'devise'
 gem 'figaro'
 gem 'puma'
+gem 'newrelic_rpm'
 
 group :development, :test do
   gem 'factory_girl_rails'
