@@ -1,6 +1,3 @@
-$('#current_course_table').hide();
-$('#updated_course').html("<%= j render 'current_course_table_ajax' %>");
+$('#current_course_table').replaceWith("<%= j render 'current_course_table_ajax' %>");
 $('#course_form').slideUp(350);
-$('#course_name').hide();
-$('#course_name_change').html("<%= j render 'course_name_ajax' %>");
-$('#updated_course').hide();
+$('#course_name').replaceWith("<%= j render 'course_name_ajax' %>");
