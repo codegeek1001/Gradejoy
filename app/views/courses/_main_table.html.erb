@@ -20,7 +20,7 @@
         <td><%= student.grade_level %></td>
         <td>Average</td>
         <% @course.assignments.each do |assignment| %>
-          <% grade = Grade.get_grade(student.id,assignment.id) %>
+          <% grade = assignment.grades.for_student(student).first %>
           <% if grade %>
             <td><%= link_to grade.points_earned, edit_grade_route(@course.id, student.id, assignment.id), id: "edit_grade", remote: true %></td>
           <% else %>
