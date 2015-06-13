@@ -11,7 +11,11 @@ Gradejoy::Application.routes.draw do
 
   resources :students
 
-  resources :course_enrollments
+  resources :course_enrollments do
+    member do
+      put 'mark_inactive'
+    end
+  end
 
   get "about" =>         "pages#about"
   get "contact" =>       "pages#contact"

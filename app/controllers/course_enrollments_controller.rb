@@ -18,12 +18,10 @@ class CourseEnrollmentsController < ApplicationController
   end
 
   def show
-    respond_with(@course_enrollment)
   end
 
   def create
     @course_enrollment = current_user.course_enrollments.new(course_enrollment_params)
-
     if @course_enrollment.save
       redirect_to courses_path
     else
@@ -41,13 +39,17 @@ class CourseEnrollmentsController < ApplicationController
     respond_with(@course_enrollment)
   end
 
+  def mark_inactive
+    @course_enrollment.update_attribute(:active, false)
+  end
+
   private
     def set_course_enrollment
       @course_enrollment = CourseEnrollment.find(params[:id])
     end
 
     def course_enrollment_params
-      params.require(:course_enrollment).permit(:student_id, :course_id, :user_id)
+      params.require(:course_enrollment).permit(:student_id, :course_id, :user_id, :active)
     end
 
     def authorized_user
