@@ -10,9 +10,6 @@ class CoursesController < ApplicationController
   end
 
   def show
-    @assignments = current_user.assignments
-    @students = current_user.students
-    respond_with(@course)
   end
 
   def new
@@ -47,14 +44,6 @@ class CoursesController < ApplicationController
 
     def set_course
       @course = Course.find(params[:id])
-    end
-
-    def set_student
-      @student = Student.find(params[:student_id])
-    end
-
-    def set_assignment
-      @assignment = Assignment.find(params[:assignment_id])
     end
 
     def course_params

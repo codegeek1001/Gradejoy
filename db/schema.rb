@@ -17,15 +17,15 @@ ActiveRecord::Schema.define(version: 20150613173149) do
   enable_extension "plpgsql"
 
   create_table "admins", force: :cascade do |t|
-    t.string   "email",              limit: 255, default: "", null: false
-    t.string   "encrypted_password", limit: 255, default: "", null: false
-    t.integer  "sign_in_count",                  default: 0
+    t.string   "email",              default: "", null: false
+    t.string   "encrypted_password", default: "", null: false
+    t.integer  "sign_in_count",      default: 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip", limit: 255
-    t.string   "last_sign_in_ip",    limit: 255
-    t.integer  "failed_attempts",                default: 0
-    t.string   "unlock_token",       limit: 255
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.integer  "failed_attempts",    default: 0
+    t.string   "unlock_token"
     t.datetime "locked_at"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -34,10 +34,10 @@ ActiveRecord::Schema.define(version: 20150613173149) do
   create_table "assignments", force: :cascade do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "title",         limit: 255
+    t.string   "title"
     t.date     "date_created"
     t.date     "date_due"
-    t.string   "category",      limit: 255
+    t.string   "category"
     t.decimal  "points_earned"
     t.decimal  "total_points"
     t.integer  "course_id"
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 20150613173149) do
   add_index "assignments", ["user_id"], name: "index_assignments_on_user_id", using: :btree
 
   create_table "categories", force: :cascade do |t|
-    t.string   "category",   limit: 255
+    t.string   "category"
     t.decimal  "weight"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -90,12 +90,12 @@ ActiveRecord::Schema.define(version: 20150613173149) do
   add_index "course_enrollments", ["user_id"], name: "index_course_enrollments_on_user_id", using: :btree
 
   create_table "courses", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.string   "period",     limit: 255
+    t.string   "name"
+    t.string   "period"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
-    t.string   "section",    limit: 255
+    t.string   "section"
     t.time     "time"
   end
 
@@ -115,17 +115,18 @@ ActiveRecord::Schema.define(version: 20150613173149) do
   end
 
   add_index "grades", ["assignment_id"], name: "index_grades_on_assignment_id", using: :btree
+  add_index "grades", ["points_earned"], name: "index_grades_on_points_earned", using: :btree
   add_index "grades", ["student_id"], name: "index_grades_on_student_id", using: :btree
   add_index "grades", ["user_id"], name: "index_grades_on_user_id", using: :btree
 
   create_table "students", force: :cascade do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "first_name",  limit: 255
-    t.string   "last_name",   limit: 255
+    t.string   "first_name"
+    t.string   "last_name"
     t.integer  "user_id"
     t.date     "birthdate"
-    t.string   "grade_level", limit: 255
+    t.string   "grade_level"
   end
 
   add_index "students", ["birthdate"], name: "index_students_on_birthdate", using: :btree
@@ -135,21 +136,21 @@ ActiveRecord::Schema.define(version: 20150613173149) do
   add_index "students", ["user_id"], name: "index_students_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  limit: 255, default: "", null: false
-    t.string   "encrypted_password",     limit: 255, default: "", null: false
-    t.string   "reset_password_token",   limit: 255
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                      default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "provider",               limit: 255
-    t.string   "uid",                    limit: 255
-    t.string   "confirmation_token",     limit: 255
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
   end
