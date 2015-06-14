@@ -1,8 +1,5 @@
 class AssignmentsController < ApplicationController
   before_action :set_assignment, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!
-  before_action :authorized_user, except: [:index, :new, :create]
-  respond_to :html, :js
 
   def index
     @assignments = current_user.assignments
@@ -10,12 +7,10 @@ class AssignmentsController < ApplicationController
   end
 
   def show
-    respond_with(@assignment)
   end
 
   def new
     @assignment = current_user.assignments.new
-    respond_with(@assignment)
   end
 
   def edit
@@ -23,9 +18,10 @@ class AssignmentsController < ApplicationController
 
   def create
     @assignment = current_user.assignments.new(assignment_params)
+    @assignments = current_user.assignments
 
     if @assignment.save
-      redirect_to(:back)
+      respond_with(@assignments)
     else
       render :new
     end
@@ -38,16 +34,12 @@ class AssignmentsController < ApplicationController
 
   def destroy
     @assignment.destroy
-    redirect_to(:back)
+    redirect_to(assignments_path)
   end
 
   private
     def set_assignment
       @assignment = Assignment.find(params[:id])
-    end
-
-    def set_course
-      @course = Course.find(params[:id])
     end
 
     def assignment_params

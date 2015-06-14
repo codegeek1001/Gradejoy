@@ -1,6 +1,6 @@
 class CourseEnrollmentsController < ApplicationController
   before_action :set_course_enrollment, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!
+  before_action :authenticate_user!
   before_action :authorized_user, except: [:index, :new, :create]
   respond_to :html, :js
 

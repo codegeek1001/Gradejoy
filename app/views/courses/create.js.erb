@@ -1,3 +1,2 @@
-$('#courses-table').hide();
-$('#updated-courses').html("<%= j render 'courses_table_ajax' %>");
+$('#courses_table').append("<%= j (render 'new_course') %>");
 $('#course_form').slideUp(350);

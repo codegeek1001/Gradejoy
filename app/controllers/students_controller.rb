@@ -1,10 +1,5 @@
 class StudentsController < ApplicationController
   before_action :set_student, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!
-  before_action :authorized_user, except: [:index, :new, :create]
-  respond_to :html, :js
-
-  respond_to :html
 
   def index
     @students = current_user.students
@@ -46,10 +41,6 @@ class StudentsController < ApplicationController
   private
     def set_student
       @student = Student.find(params[:id])
-    end
-
-    def set_course
-      @course = Course.find(params[:id])
     end
 
     def student_params

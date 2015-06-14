@@ -12,10 +12,10 @@
       </tr>
     </thead>
 
-    <tbody>
+    <tbody class="assignments_table">
       <% @assignments.each do |assignment| %>
       <tr>
-        <td><%= link_to assignment.title, assignment %></td>
+        <td><%= link_to assignment.title, assignment, remote:true, id: "assignmentid#{assignment.id.to_s}" %><p id="assignmentbuttons<%=assignment.id.to_s %>"></p></td>
         <td><%= assignment.date_created %></td>
         <td><%= assignment.date_due %></td>
         <td><%= assignment.category %></td>
@@ -26,6 +26,8 @@
   </table>
 </div>
 
+<div id="assignment_form"></div>
 <br>
-
-<%= link_to 'Back to Courses', courses_path, class: "btn btn-danger " %>
+<%= link_to 'Create New Assignment', new_assignment_path, class: "btn btn-primary", remote: true, id: "create_assignment" %>
+<br /><br />
+<%= link_to 'Back to Courses', courses_path, class: "btn btn-danger" %>

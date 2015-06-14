@@ -12,7 +12,7 @@
       </tr>
     </thead>
 
-    <tbody>
+    <tbody id="courses_table">
       <% @courses.each do |course| %>
       <tr>
         <td><%= link_to course.name, course %></td>

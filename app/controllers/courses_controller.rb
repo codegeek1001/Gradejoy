@@ -1,12 +1,10 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: [:show, :edit, :update, :destroy]
   before_action :authorized_user, except: [:index, :new, :create]
-  before_filter :authenticate_user!
-  respond_to :html, :js, :json, :xml
+  before_action :authenticate_user!
 
   def index
     @courses = current_user.courses
-      respond_with(@courses)
   end
 
   def show
@@ -14,7 +12,6 @@ class CoursesController < ApplicationController
 
   def new
     @course = current_user.courses.new
-    respond_with(@course)
   end
 
   def edit
@@ -24,7 +21,7 @@ class CoursesController < ApplicationController
     @course = current_user.courses.new(course_params)
     @courses = current_user.courses
     if @course.save
-       respond_with @courses
+      respond_with(@courses)
     else
       render :new
     end
@@ -32,12 +29,11 @@ class CoursesController < ApplicationController
 
   def update
     @course.update(course_params)
-    respond_with(@course)
   end
 
   def destroy
     @course.destroy
-    respond_with(@course)
+    redirect_to(courses_path)
   end
 
   private

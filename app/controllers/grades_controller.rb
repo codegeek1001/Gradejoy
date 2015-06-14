@@ -2,9 +2,6 @@ class GradesController < ApplicationController
   before_action :set_course, only: [:new, :create, :update, :destroy]
   before_action :set_student, only: [:new, :create, :update, :destroy]
   before_action :set_assignment, only: [:new, :create, :update, :destroy]
-  before_action :authorized_user, except: [:index, :new, :create]
-  before_filter :authenticate_user!
-  respond_to :html, :js
 
   def new
     @url = url_for(:controller => 'grades', :action => 'create')
