@@ -21,7 +21,7 @@ class AssignmentsController < ApplicationController
     @assignments = current_user.assignments
 
     if @assignment.save
-      redirect_to assignments_path
+      respond_with(@assignments)
     else
       render :new
     end
@@ -40,7 +40,7 @@ class AssignmentsController < ApplicationController
   def destroy
     @assignment.destroy
     @assignments = current_user.assignments
-    redirect_to assignments_path
+    respond_with(@assignments)
   end
 
   private

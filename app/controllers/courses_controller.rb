@@ -1,7 +1,5 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: [:show, :edit, :update, :destroy]
-  before_action :authorized_user, except: [:index, :new, :create]
-  before_action :authenticate_user!
 
   def index
     @courses = current_user.courses
