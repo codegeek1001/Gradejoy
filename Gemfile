@@ -18,6 +18,7 @@ gem 'devise'
 gem 'figaro'
 gem 'puma'
 gem 'newrelic_rpm'
+gem 'responders'
 
 group :development, :test do
   gem 'factory_girl_rails'

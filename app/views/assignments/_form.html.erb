@@ -1,4 +1,4 @@
-<%= form_for @assignment, remote: true do |f| %>
+<%= form_for @assignment do |f| %>
   <% if @assignment.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@assignment.errors.count, "error") %> prohibited this assignment from being saved:</h2>
@@ -14,7 +14,7 @@
   <% if current_page? new_assignment_path %>
     <h3>Create New Assignment</h3>
   <% else %>
-    <h3>Edit Assignment</h3>
+    <h3>Edit <%= @assignment.title %></h3>
   <% end %>
   <%= f.label :title %> (required)
   <%= f.text_field :title, class: 'form-control form-control-inline' %><br /><br />
@@ -35,4 +35,4 @@
       <%= f.submit "Submit", class:"btn btn-primary" %>
   </div>
 
-  <% end %>
+<% end %>

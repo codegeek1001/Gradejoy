@@ -24,5 +24,6 @@
   </table>
 </div>
 
-<%= link_to 'Delete Assignment', assignment_path, method: :delete, data: { confirm: 'Are you sure you want to delete this assignment?' }, class: "btn btn-primary" %> <br /><br />
-<%= link_to 'Edit Assignment', edit_assignment_path(@assignment), class: "btn btn-primary", remote: true %><br /><br />
+<%= link_to 'Delete Assignment', assignment_path, method: :delete, data: { confirm: 'Are you sure you want to delete this assignment?' }, class: "btn btn-danger" %> <br /><br />
+<%= link_to 'Edit Assignment', edit_assignment_path(@assignment), class: "btn btn-primary" %><br /><br />
+<%= link_to 'Back to Assignments', assignments_path, class: "btn btn-info" %>

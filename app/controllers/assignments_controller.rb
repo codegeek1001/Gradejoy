@@ -21,20 +21,26 @@ class AssignmentsController < ApplicationController
     @assignments = current_user.assignments
 
     if @assignment.save
-      respond_with(@assignments)
+      redirect_to assignments_path
     else
       render :new
     end
   end
 
   def update
-    @assignment.update(assignment_params)
-    redirect_to(:back)
+    @assignments = current_user.assignments
+
+    if @assignment.update(assignment_params)
+      redirect_to assignments_path
+    else
+      render :edit
+    end
   end
 
   def destroy
     @assignment.destroy
-    redirect_to(assignments_path)
+    @assignments = current_user.assignments
+    redirect_to assignments_path
   end
 
   private

@@ -213,6 +213,7 @@ DEPENDENCIES
   puma
   rails (= 4.2.0)
   rails_12factor
+  responders
   rspec-rails
   sass-rails
   sdoc
