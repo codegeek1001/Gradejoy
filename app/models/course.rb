@@ -7,5 +7,5 @@ class Course < ActiveRecord::Base
   has_many :course_assignments
   has_many :assignments, through: :course_assignments
 
-  belongs_to :user
+  belongs_to :user, dependent: :destroy
 end
