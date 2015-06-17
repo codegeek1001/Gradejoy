@@ -1,6 +1,9 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
-  
+  before_action :authenticate_user!
+  before_action :authorized_user, except: [:index, :new, :create]
+  respond_to :html, :js, :xml, :json
+
   def index
     @categories = current_user.categories
     respond_with(@categories)

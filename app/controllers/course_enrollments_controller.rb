@@ -2,7 +2,8 @@ class CourseEnrollmentsController < ApplicationController
   before_action :set_course_enrollment, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
   before_action :authorized_user, except: [:index, :new, :create]
-  respond_to :html, :js
+
+  respond_to :html, :js, :xml, :json
 
   def index
     @course_enrollments = current_user.course_enrollments

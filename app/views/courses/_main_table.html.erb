@@ -1,13 +1,13 @@
 <div class="table-responsive" id="main-table">
   <table class="table table-bordered table-hover">
     <thead>
-      <tr>
+      <tr id="student_info_header">
         <th>First Name</th>
         <th>Last Name</th>
         <th>Grade Level</th>
         <th>Average</th>
         <% @course.course_assignments.each do |course_assignment| %>
-          <th class="assignment" id="new_assignment"><%= link_to course_assignment.assignment.title, course_assignment.assignment, remote: true %></th>
+          <th id="assignmentid<%= j course_assignment.assignment.id.to_s %>"><%= link_to course_assignment.assignment.title, course_assignment.assignment, remote: true %><p id="assignmentbuttons<%= j course_assignment.assignment.id.to_s %>" class="assignment_buttons"></p></th>
         <% end %>
       </tr>
     </thead>

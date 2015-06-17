@@ -1,5 +1,5 @@
 <tr>
-  <td><%= link_to @assignments.last.title, @assignment, remote:true, class: "assignment" %><p id= "assignment_buttons"></p></td>
+  <td><%= link_to @assignments.last.title, @assignment, remote:true, class: "assignment" %><p id="assignmentbuttons<%= @assignment.id.to_s %>"></p></td>
   <td><%= @assignments.last.date_created %></td>
   <td><%= @assignments.last.date_due %></td>
   <td><%= @assignments.last.category %></td>

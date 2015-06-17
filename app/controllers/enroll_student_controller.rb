@@ -1,5 +1,8 @@
 class EnrollStudentController < ApplicationController
   before_action :set_course, only: [:create, :new]
+  before_action :authenticate_user!
+  before_action :authorized_user, except: [:index, :new, :create]
+  respond_to :html, :js, :xml, :json
 
   def new
     @url = url_for(:controller => 'enroll_student', :action => 'create')

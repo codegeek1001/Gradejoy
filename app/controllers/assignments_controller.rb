@@ -1,5 +1,8 @@
 class AssignmentsController < ApplicationController
   before_action :set_assignment, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :authorized_user, except: [:index, :new, :create]
+  respond_to :html, :js, :xml, :json
 
   def index
     @assignments = current_user.assignments
@@ -28,7 +31,6 @@ class AssignmentsController < ApplicationController
   end
 
   def update
-    @assignments = current_user.assignments
 
     if @assignment.update(assignment_params)
       redirect_to assignments_path
@@ -39,8 +41,7 @@ class AssignmentsController < ApplicationController
 
   def destroy
     @assignment.destroy
-    @assignments = current_user.assignments
-    respond_with(@assignments)
+    redirect_to assignments_path
   end
 
   private

@@ -1,5 +1,8 @@
 class StudentsController < ApplicationController
   before_action :set_student, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :authorized_user, except: [:index, :new, :create]
+  respond_to :html, :js, :xml, :json
 
   def index
     @students = current_user.students
