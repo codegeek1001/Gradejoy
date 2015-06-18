@@ -1,4 +1,4 @@
-<div class="table-responsive" id="categories-table">
+<div class="table-responsive">
   <table class="table table-bordered table-hover">
     <thead>
       <tr>
@@ -7,10 +7,10 @@
       </tr>
     </thead>
 
-    <tbody>
-      <% @categories.each do |category| %>
-        <tr>
-          <td><%= link_to category.category, category,  class: "show-category-buttons",remote: true %></td>
+    <tbody id="categories-table">
+      <% @categories.sort_by(&:created_at).each do |category| %>
+        <tr id="categoryid<%= category.id.to_s %>">
+          <td class="c_buttons"><%= link_to category.category, category, remote: true %><p id="categorybuttons<%= category.id.to_s %>"></p></td>
           <td><%= category.weight %>%</td>
         </tr>
       <% end %>

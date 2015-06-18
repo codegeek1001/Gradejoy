@@ -1,4 +1,2 @@
 $('#category-form').slideUp(350);
-$('#categories-table').hide();
-$('#categories-table').html("<%= j render 'categories_table_ajax' %>");
-$('#categories-table').show();
+$('#categories-table').append("<%= j (render 'new_category') %>");

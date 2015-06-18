@@ -3,6 +3,7 @@ Gradejoy::Application.routes.draw do
   resources :categories
 
   devise_for :admins
+
   devise_for :users
 
   resources :courses
@@ -16,6 +17,8 @@ Gradejoy::Application.routes.draw do
       put 'mark_inactive'
     end
   end
+
+  resources :course_assignments
 
   get "about" =>         "pages#about"
   get "contact" =>       "pages#contact"

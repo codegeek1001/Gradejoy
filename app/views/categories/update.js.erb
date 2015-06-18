@@ -1,5 +1,3 @@
-$('#category-buttons').hide();
+var categoryId = "#categoryid<%= j @category.id.to_s %>"
+$(categoryId).replaceWith("<%= j render 'updated_category' %>")
 $('#category-form').slideUp(350);
-$('#categories-table').hide();
-$('#categories-table').html("<%= j render 'categories_table_ajax' %>");
-$('#categories-table').show();

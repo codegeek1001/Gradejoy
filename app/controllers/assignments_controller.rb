@@ -31,7 +31,6 @@ class AssignmentsController < ApplicationController
   end
 
   def update
-
     if @assignment.update(assignment_params)
       redirect_to assignments_path
     else
@@ -47,6 +46,10 @@ class AssignmentsController < ApplicationController
   private
     def set_assignment
       @assignment = Assignment.find(params[:id])
+    end
+
+    def course_assignment_params
+      params.require(:course_assignment).permit(:course_id, :assignment_id, :user_id)
     end
 
     def assignment_params

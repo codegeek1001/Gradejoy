@@ -1,8 +1,14 @@
-class CourseAssignmentController < ApplicationController
+class CourseAssignmentsController < ApplicationController
   before_action :set_course, only: [:create, :new]
+  before_action :set_course_assignment, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
   before_action :authorized_user, except: [:index, :new, :create]
   respond_to :html, :js, :xml, :json
+
+  def index
+    @course_assignments = current_user.course_assignments
+    respond_with(@course_assignments)
+  end
 
   def new
     @url = url_for(:controller => 'course_assignment', :action => 'create')
@@ -33,13 +39,21 @@ class CourseAssignmentController < ApplicationController
     @course = Course.find(params[:id])
   end
 
+  def set_course_assignment
+    @course_assignment = CourseAssignment.find(params[:id])
+  end
+
   def assignment_params
     params.require(:assignment).permit(:title, :date_created, :date_due, :category, :total_points)
   end
 
+  def course_assignment_params
+    params.require(:course_assignment).permit(:course_id, :assignment_id, :user_id)
+  end
+
   def authorized_user
-    @course = current_user.courses.find_by(id: params[:id])
-    redirect_to courses_path, notice: "Not authorized to edit that course" if @course.nil?
+    @course_assignments = current_user.course_assignments.find_by(id: params[:id])
+    redirect_to courses_path, notice: "Not authorized to edit that course" if @course_assignment.nil?
   end
 
 end

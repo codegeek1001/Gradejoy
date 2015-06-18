@@ -14,9 +14,9 @@
 
     <tbody class="assignments_table">
       <% @assignments.sort_by(&:created_at).each do |assignment| %>
-      <tr id= "assignmentid<%= assignment.id.to_s %>">
+      <tr id="assignmentid<%= assignment.id.to_s %>">
         <td class="a_buttons"><%= link_to assignment.title, assignment, remote:true %><p id="assignmentbuttons<%=assignment.id.to_s %>"></p></td>
-        <td><%= assignment.date_created %></td>
+        <td><%= assignment.created_at.strftime("%A, %B %d, %Y, at %I:%M %p") %></td>
         <td><%= assignment.date_due %></td>
         <td><%= assignment.category %></td>
         <td><%= assignment.total_points %></td>

@@ -1,4 +1,7 @@
-$('#category-buttons').html("<%= j (render 'category_buttons') %>")
-$('.show-category-buttons').click(function(){
-  $('#category-buttons').toggle();
+var categoryId = "#categoryid<%= j @category.id.to_s %>"
+var categoryButtonsId = "#categorybuttons<%= @category.id.to_s %>"
+
+$(categoryButtonsId).html("<%= j (render 'category_buttons') %>")
+$(categoryId).click(function(){
+  $(categoryButtonsId).toggle();
 });
