@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150613173149) do
+ActiveRecord::Schema.define(version: 20150617160720) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,7 +35,6 @@ ActiveRecord::Schema.define(version: 20150613173149) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "title"
-    t.date     "date_created"
     t.date     "date_due"
     t.string   "category"
     t.decimal  "points_earned"
@@ -46,7 +45,6 @@ ActiveRecord::Schema.define(version: 20150613173149) do
 
   add_index "assignments", ["category"], name: "index_assignments_on_category", using: :btree
   add_index "assignments", ["course_id"], name: "index_assignments_on_course_id", using: :btree
-  add_index "assignments", ["date_created"], name: "index_assignments_on_date_created", using: :btree
   add_index "assignments", ["date_due"], name: "index_assignments_on_date_due", using: :btree
   add_index "assignments", ["points_earned"], name: "index_assignments_on_points_earned", using: :btree
   add_index "assignments", ["title"], name: "index_assignments_on_title", using: :btree
@@ -66,9 +64,11 @@ ActiveRecord::Schema.define(version: 20150613173149) do
   add_index "categories", ["weight"], name: "index_categories_on_weight", using: :btree
 
   create_table "course_assignments", force: :cascade do |t|
-    t.integer "course_id"
-    t.integer "assignment_id"
-    t.integer "user_id"
+    t.integer  "course_id"
+    t.integer  "assignment_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "course_assignments", ["assignment_id"], name: "index_course_assignments_on_assignment_id", using: :btree

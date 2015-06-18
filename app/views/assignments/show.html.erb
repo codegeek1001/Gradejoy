@@ -15,14 +15,36 @@
     <tbody>
       <tr>
         <td><%= @assignment.title %></td>
-        <td><%= @assignment.date_created %></td>
-        <td><%= @assignment.date_due %></td>
+        <td><%= @assignment.created_at.strftime("%A, %B %d, %Y, at %I:%M %p") %></td>
+        <td><%= @assignment.date_due.strftime("%A, %B %d, %Y") %></td>
         <td><%= @assignment.category %></td>
         <td><%= @assignment.total_points %></td>
       </tr>
     </tbody>
   </table>
 </div>
+<br />
+
+<div class="table-responsive">
+  <table class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>Course</th>
+        <th>Date Added To Course</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <% CourseAssignment.where(assignment: @assignment).each do |course_assignment| %>
+          <td><%= course_assignment.course.name %></td>
+          <td><%= course_assignment.created_at.strftime("%A, %B %d, %Y, at %I:%M %p") %></td>
+        <% end %>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<br />
 
 <%= link_to 'Delete Assignment', assignment_path, method: :delete, data: { confirm: 'Are you sure you want to delete this assignment?' }, class: "btn btn-danger" %> <br /><br />
 <%= link_to 'Edit Assignment', edit_assignment_path(@assignment), class: "btn btn-primary" %><br /><br />
