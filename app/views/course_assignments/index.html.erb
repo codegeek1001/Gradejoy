@@ -17,7 +17,7 @@
     <tbody class="course_assignments_table">
       <% @course_assignments.each do |course_assignment| %>
       <tr id= "courseassignmentid<%= course_assignment.id.to_s %>">
-        <td class="a_buttons"><%= link_to course_assignment.assignment.title, course_assignment.assignment %><p id="courseassignmentbuttons<%= course_assignment.assignment.id.to_s %>"></p></td>
+        <td class="a_buttons"><%= link_to course_assignment.assignment.name, course_assignment.assignment %><p id="courseassignmentbuttons<%= course_assignment.assignment.id.to_s %>"></p></td>
         <td><%= link_to course_assignment.course.name, course_assignment.course %></td>
         <td><%= course_assignment.assignment.created_at.strftime("%A, %B %d, %Y, at %I:%M %p") %></td>
         <td><%= course_assignment.assignment.date_due %></td>

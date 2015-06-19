@@ -1,5 +1,5 @@
 <% provide(:title, "Assignment") %>
-<h2><%= @assignment.title %></h2>
+<h2><%= @assignment.name %></h2>
 <div class="table-responsive">
   <table class="table table-bordered table-hover">
     <thead>
@@ -14,7 +14,7 @@
 
     <tbody>
       <tr>
-        <td><%= @assignment.title %></td>
+        <td><%= @assignment.name %></td>
         <td><%= @assignment.created_at.strftime("%A, %B %d, %Y, at %I:%M %p") %></td>
         <td><%= @assignment.date_due.strftime("%A, %B %d, %Y") %></td>
         <td><%= @assignment.category %></td>

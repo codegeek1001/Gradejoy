@@ -1,1 +1,1 @@
-<th><%= link_to @course.course_assignments.last.assignment.title, @course.course_assignments.last.assignment, remote:true, class: "assignment" %><p id="assignmentbuttons<%= j @course_assignment.assignment.id.to_s %>" class="assignment_buttons"></p></th>
+<th><%= link_to @course.course_assignments.last.assignment.name, @course.course_assignments.last.assignment, remote:true, class: "assignment" %><p id="assignmentbuttons<%= j @course_assignment.assignment.id.to_s %>" class="assignment_buttons"></p></th>

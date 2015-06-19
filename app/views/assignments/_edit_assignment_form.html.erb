@@ -14,10 +14,10 @@
   <% if current_page? new_assignment_path %>
     <h3>Create New Assignment</h3>
   <% else %>
-    <h3>Edit <%= @assignment.title %></h3>
+    <h3>Edit <%= @assignment.name %></h3>
   <% end %>
-  <%= f.label :title %> (required)
-  <%= f.text_field :title, class: 'form-control form-control-inline' %><br /><br />
+  <%= f.label :name %> (required)
+  <%= f.text_field :name, class: 'form-control form-control-inline' %><br /><br />
 
   <%= f.label :date_due %>
   <%= f.date_select :date_due, start_year: Date.current.year, end_year: 2015 %><br /><br />
