@@ -35,7 +35,4 @@ Gradejoy::Application.configure do
   config.active_support.deprecation = :stderr
   config.active_support.test_order = :sorted
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-  %w{SECRET_TOKEN DEVISE_SECRET_KEY GMAIL_PASSWORD SEGMENT_IO_WRITE_KEY DO_CLIENT_ID DO_SECRET_SECRET}.each do |env_var|
-    ENV[env_var] = 'foo'
-  end
 end

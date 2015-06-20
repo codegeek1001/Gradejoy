@@ -1,9 +1,0 @@
-# This file will help you run the application locally if you clone the code by setting some random environment variables.
-# In order to use this file to run the application locally, rename "application.yml.example" to "application.yml".
-
-SECRET_TOKEN: "xxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-DEVISE_SECRET_KEY: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-GMAIL_PASSWORD: 'xxxxxxxxxxxxxxxxxxxxxxxxxx'
-SEGMENT_IO_WRITE_KEY: 'xxxxxxxxxxxxxxxxxxxxxxxxxx'
-DO_CLIENT_ID: 'xxxxxxxxxxxxxxxxxxxxxxxxxx'
-DO_SECRET_SECRET: 'xxxxxxxxxxxxxxxxxxxxxxxxxx'

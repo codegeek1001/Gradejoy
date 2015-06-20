@@ -15,7 +15,6 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder'
 gem 'devise'
-gem 'figaro'
 gem 'puma'
 gem 'newrelic_rpm'
 
