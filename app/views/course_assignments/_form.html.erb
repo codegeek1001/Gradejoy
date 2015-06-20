@@ -1,41 +1,20 @@
-<%= form_for @assignment, :url => @url, remote: true do |f| %>
-  <% if @assignment.errors.any? %>
+<h3>Add <%= @assignment.name %> to Another Course</h3>
+
+<%= form_for @course_assignment do |f| %>
+  <% if @course_assignment.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@assignment.errors.count, "error") %> prohibited this assignment from being saved:</h2>
+      <h2><%= pluralize(@assignment.errors.count, "error") %> prohibited this assignment from being created:</h2>
 
       <ul>
-      <% @assignment.errors.full_messages.each do |msg| %>
+      <% @course_assignment.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
 
-  <% if current_page? new_course_assignment_route(@course.id) %>
-    <h3>Create New Assignment</h3>
-  <% else %>
-    <h3>Edit Assignment</h3>
-  <% end %>
-
-
-  <%= f.label :name %> (required)
-  <%= f.text_field :name, class: 'form-control form-control-inline' %><br /><br />
-
-  <%= f.label :date_created %>
-  <%= f.date_select :date_created, start_year: Date.current.year, end_year: 2015  %><br /><br />
-
-  <%= f.label :date_due %>
-  <%= f.date_select :date_due, start_year: Date.current.year, end_year: 2015 %><br /><br />
-
-  <%= f.label :category %>
-  <%= f.text_field :category, class: 'form-control form-control-inline' %><br /><br />
-
-  <%= f.label :total_points %>
-  <%= f.number_field :total_points, class: 'form-control form-control-inline' %><br /><br />
-
-
   <div class="actions">
-      <%= f.submit "Submit", class:"btn btn-primary", remote: true %>
+      <%= f.submit "Submit", class:"btn btn-primary" %>
   </div>
 
 <% end %>

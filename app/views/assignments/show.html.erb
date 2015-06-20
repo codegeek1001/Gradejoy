@@ -16,7 +16,7 @@
       <tr>
         <td><%= @assignment.name %></td>
         <td><%= @assignment.created_at.strftime("%A, %B %d, %Y, at %I:%M %p") %></td>
-        <td><%= @assignment.date_due.strftime("%A, %B %d, %Y") %></td>
+        <td><%= @assignment.date_due.strftime("%A, %B %d, %Y, at %I:%M %p")%></td>
         <td><%= @assignment.category %></td>
         <td><%= @assignment.total_points %></td>
       </tr>

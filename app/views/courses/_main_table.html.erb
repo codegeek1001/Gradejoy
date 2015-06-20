@@ -7,7 +7,7 @@
         <th>Grade Level</th>
         <th>Average</th>
         <% @course.course_assignments.each do |course_assignment| %>
-          <th id="assignmentid<%= j course_assignment.assignment.id.to_s %>"><%= link_to course_assignment.assignment.name, course_assignment.assignment, remote: true %><p id="assignmentbuttons<%= j course_assignment.assignment.id.to_s %>"></p></th>
+          <th id="assignmentid<%= j course_assignment.assignment.id.to_s %>"><%= link_to course_assignment.assignment.name, course_assignment.assignment, remote: true %><p class="assignment_buttons" id="assignmentbuttons<%= j course_assignment.assignment.id.to_s %>"></p></th>
         <% end %>
       </tr>
     </thead>

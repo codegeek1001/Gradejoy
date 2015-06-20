@@ -3,7 +3,7 @@ class SetupDatabase < ActiveRecord::Migration
     #assignments table
     create_table :assignments do |t|
       t.string :name, null: false
-      t.string :date_due
+      t.datetime :date_due
       t.string :category
       t.decimal :points_earned
       t.decimal :total_points

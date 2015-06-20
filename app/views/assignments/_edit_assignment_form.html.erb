@@ -20,7 +20,7 @@
   <%= f.text_field :name, class: 'form-control form-control-inline' %><br /><br />
 
   <%= f.label :date_due %>
-  <%= f.date_select :date_due, start_year: Date.current.year, end_year: 2015 %><br /><br />
+  <%= f.datetime_select :date_due, start_year: DateTime.current.year, end_year: 2015, ampm: true %><br /><br />
 
   <%= f.label :category %>
   <%= f.text_field :category, class: 'form-control form-control-inline' %><br /><br />

@@ -1,3 +1,4 @@
+<% provide(:title, "New Assignment") %>
 $('#create_course_assignment_form').html("<%= j (render 'form') %>");
 $('#create_course_assignment').click(function(){
   $('#create_course_assignment_form').toggle();

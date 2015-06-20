@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20150618213506) do
 
   create_table "assignments", force: :cascade do |t|
     t.string   "name",          null: false
-    t.string   "date_due"
+    t.datetime "date_due"
     t.string   "category"
     t.decimal  "points_earned"
     t.decimal  "total_points"

@@ -38,7 +38,7 @@
 <div id="add_grade_form"></div>
 
 <br />
-<%= link_to "Create New Assignment", new_course_assignment_route(@course.id), class: "btn btn-danger", id: "create_course_assignment", remote: true %> <br /><br />
+<%= link_to "Create New Assignment", create_assignment_and_course_assignment_route(@course.id), class: "btn btn-danger", id: "create_course_assignment", remote: true %> <br /><br />
 
 <%= link_to "Assignment Categories", categories_path, class: "btn btn-success" %> (Feature in progress)<br /><br />
 
