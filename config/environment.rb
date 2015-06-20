@@ -1,4 +1,4 @@
 # Load the Rails application.
 require File.expand_path('../application', __FILE__)
 # Initialize the Rails application.
-Gradejoy::Application.initialize!
+Rails.application.initialize!
