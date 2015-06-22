@@ -10,6 +10,8 @@ class AssignmentsController < ApplicationController
   end
 
   def show
+    @course_assignment = current_user.course_assignments.new
+    @courses = current_user.courses
   end
 
   def new

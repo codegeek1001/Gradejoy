@@ -1,1 +1,8 @@
-<th><%= link_to @course.course_assignments.last.assignment.name, @course.course_assignments.last.assignment, remote:true, class: "assignment" %><p id="assignmentbuttons<%= j @course_assignment.assignment.id.to_s %>" class="assignment_buttons"></p></th>
+<tr>
+  <td class="ca-buttons"><%= link_to @course_assignment.assignment.name, @course_assignment.assignment %><p id="course-assignment-buttons<%= @course_assignment.assignment.id.to_s %>" class="course-assignment-buttons"></p></td>
+  <td><%= link_to @course_assignment.course.name, @course_assignment.course %></td>
+  <td><%= @course_assignment.assignment.created_at.strftime("%A, %B %d, %Y, at %I:%M %p") %></td>
+  <td><%= @course_assignment.assignment.date_due %></td>
+  <td><%= @course_assignment.assignment.category %></td>
+  <td><%= @course_assignment.assignment.total_points %></td>
+</tr>

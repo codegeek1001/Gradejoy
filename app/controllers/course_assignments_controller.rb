@@ -1,5 +1,4 @@
 class CourseAssignmentsController < ApplicationController
-  before_action :set_course, only: [:create, :new]
   before_action :set_course_assignment, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
   before_action :authorized_user, except: [:index, :new, :create]
@@ -11,33 +10,35 @@ class CourseAssignmentsController < ApplicationController
   end
 
   def new
-    @url = url_for(:controller => 'course_assignment', :action => 'create')
-    @assignment = current_user.assignments.new
+    @course_assignment = current_user.course_assignments.new
+    @courses = current_user.courses
+    @assignments = current_user.assignments
   end
 
   def show
-    @assignment = current_user.assignments
-    @course_assignment = current_user.course_assignments
-    respond with(@course_assignment)
   end
 
   def create
-    @assignment = current_user.assignments.new assignment_params
-     if @assignment.save
-       @course_assignment = current_user.course_assignments.new :assignment_id => @assignment.id, :course_id => @course.id
-       if @course_assignment.save
-         respond_with @course
-       end
-       else
-        render :new
+    @course_assignment = current_user.course_assignments.new(course_assignment_params)
+    @course_assignments = current_user.course_assignments
+
+     if @course_assignment.save
+       #redirect_to course_assignments_path
+       respond_with(@course_assignments)
+     else
+       render :new
      end
   end
 
-  private
-
-  def set_course
-    @course = Course.find(params[:id])
+  def update
+    if @course_assignment.update(course_assignment_params)
+      redirect_to course_assignments_path
+    else
+      render :edit
+    end
   end
+
+  private
 
   def set_course_assignment
     @course_assignment = CourseAssignment.find(params[:id])
@@ -48,7 +49,7 @@ class CourseAssignmentsController < ApplicationController
   end
 
   def course_assignment_params
-    params.require(:course_assignment).permit(:course_id, :assignment_id, :user_id)
+    params.require(:course_assignment).permit(:course_id, :course_ids, :assignment_id, :user_id)
   end
 
   def authorized_user

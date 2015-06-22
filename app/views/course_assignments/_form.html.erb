@@ -1,9 +1,7 @@
-<h3>Add <%= @assignment.name %> to Another Course</h3>
-
-<%= form_for @course_assignment do |f| %>
+<%= form_for @course_assignment, remote: true do |f| %>
   <% if @course_assignment.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@assignment.errors.count, "error") %> prohibited this assignment from being created:</h2>
+      <h2><%= pluralize(@course_assignment.errors.count, "error") %> prohibited this assignment from being created:</h2>
 
       <ul>
       <% @course_assignment.errors.full_messages.each do |msg| %>
@@ -13,8 +11,16 @@
     </div>
   <% end %>
 
-  <div class="actions">
-      <%= f.submit "Submit", class:"btn btn-primary" %>
-  </div>
+    <p>Please select an assignment to add a course.</p>
+    <%= f.label :assignment %>
+    <%= f.select(:assignment_id, @assignments.collect { |a| [ a.name, a.id ] }, prompt: 'Select an Assignment') %><br /><br />
+
+    <p>Please select the course to which you would like to add an assignment.</p>
+    <%= f.label :course %>
+    <%= f.select(:course_id, @courses.collect { |c| [ c.name, c.id] }, prompt: 'Select a Course') %><br /><br />
+
+    <div class="actions">
+        <%= f.submit "Submit", class:"btn btn-primary" %>
+    </div>
 
 <% end %>

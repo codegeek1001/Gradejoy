@@ -14,10 +14,10 @@
       </tr>
     </thead>
 
-    <tbody class="course_assignments_table">
-      <% @course_assignments.each do |course_assignment| %>
-      <tr id= "courseassignmentid<%= course_assignment.id.to_s %>">
-        <td class="a_buttons"><%= link_to course_assignment.assignment.name, course_assignment.assignment %><p id="courseassignmentbuttons<%= course_assignment.assignment.id.to_s %>"></p></td>
+    <tbody class="course-assignments-table">
+      <% @course_assignments.sort_by(&:course_id).each do |course_assignment| %>
+      <tr id= "course-assignment-id<%= course_assignment.id.to_s %>">
+        <td class="ca-buttons"><%= link_to course_assignment.assignment.name, course_assignment.assignment %><p id="course-assignment-buttons<%= course_assignment.assignment.id.to_s %>" class="course-assignment-buttons"></p></td>
         <td><%= link_to course_assignment.course.name, course_assignment.course %></td>
         <td><%= course_assignment.assignment.created_at.strftime("%A, %B %d, %Y, at %I:%M %p") %></td>
         <td><%= course_assignment.assignment.date_due %></td>
@@ -29,8 +29,7 @@
   </table>
 </div>
 
-<div id="course_assignment_form"></div>
 <br>
-<%= link_to 'Create New Course Assignment', new_course_assignment_path, class: "btn btn-primary" %>
-<br /><br />
+<%= link_to 'Add an Assignment to a Course', new_course_assignment_path, class: "btn btn-primary", id:"add-course-assignment", remote: true %><br /><br />
+<div id="course-assignment-form"></div><br />
 <%= link_to 'Back to Courses', courses_path, class: "btn btn-danger" %>

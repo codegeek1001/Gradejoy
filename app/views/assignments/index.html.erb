@@ -28,6 +28,6 @@
 
 <div id="assignment_form"></div>
 <br>
-<%= link_to 'Create New Assignment', new_assignment_path, class: "btn btn-primary", remote: true, id: "create_assignment" %>
-<br /><br />
+<%= link_to 'View Assignments by Course', course_assignments_path, class: "btn btn-info" %><br /><br />
+<%= link_to 'Create New Assignment', new_assignment_path, class: "btn btn-primary", remote: true, id: "create_assignment" %><br /><br />
 <%= link_to 'Back to Courses', courses_path, class: "btn btn-danger" %>

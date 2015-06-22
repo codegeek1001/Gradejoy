@@ -12,15 +12,15 @@
       </tr>
     </thead>
 
-    <tbody>
+    <tbody id="courses_table">
       <% @courses.each do |course| %>
       <tr>
         <td><%= link_to course.name, course %></td>
         <td><%= course.id %></td>
-        <td><%= course.time %></td>
+        <td><%= course.time.strftime("%I:%M %p") %></td>
         <td><%= course.period %></td>
         <td><%= course.section %></td>
-        <td><%= course.created_at %></td>
+        <td><%= course.created_at.strftime("%A, %B %d, %Y, at %I:%M %p") %></td>
         <td><%= course.students.all.count %></td>
       </tr>
       <% end %>
