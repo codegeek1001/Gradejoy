@@ -35,12 +35,12 @@
     </thead>
 
     <tbody>
-      <tr>
-        <% CourseAssignment.where(assignment: @assignment).each do |course_assignment| %>
+      <% CourseAssignment.where(assignment: @assignment).each do |course_assignment| %>
+        <tr>
           <td><%= course_assignment.course.name %></td>
           <td><%= course_assignment.created_at.strftime("%A, %B %d, %Y, at %I:%M %p") %></td>
-        <% end %>
-      </tr>
+        </tr>
+      <% end %>
     </tbody>
   </table>
 </div>

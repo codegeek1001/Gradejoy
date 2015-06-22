@@ -38,6 +38,11 @@ class CourseAssignmentsController < ApplicationController
     end
   end
 
+  def destroy
+    @course_assignment.destroy
+    redirect_to(:back)
+  end
+
   private
 
   def set_course_assignment

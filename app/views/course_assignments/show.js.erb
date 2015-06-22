@@ -1,0 +1,7 @@
+var assignmentId = "#course-assignment-id<%= j @course_assignment.id.to_s %>"
+var assignmentButtonsId = "#course-assignment-buttons<%= j @course_assignment.id.to_s %>"
+
+$(assignmentButtonsId).html("<%= j (render 'course_assignment_buttons') %>");
+$(assignmentId).click(function(){
+  $(assignmentButtonsId).toggle();
+});

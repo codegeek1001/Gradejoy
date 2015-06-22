@@ -7,12 +7,12 @@
         <th>Grade Level</th>
         <th>Average</th>
         <% @course.course_assignments.each do |course_assignment| %>
-          <th id="assignmentid<%= j course_assignment.assignment.id.to_s %>"><%= link_to course_assignment.assignment.name, course_assignment.assignment, remote: true %><p class="assignment_buttons" id="assignmentbuttons<%= j course_assignment.assignment.id.to_s %>"></p></th>
+          <th id="course-assignment-id<%= j course_assignment.id.to_s %>"><%= link_to course_assignment.assignment.name, course_assignment, remote: true %><p class="course-assignment_buttons" id="course-assignment-buttons<%= j course_assignment.id.to_s %>"></p></th>
         <% end %>
       </tr>
     </thead>
 
-    <tbody>
+    <tbody id="students-and-grades">
       <% @course.course_enrollments.where(active: true).each do |course_enrollment| %>
         <tr id="studentid<%= course_enrollment.student.id.to_s %>">
           <td class="student"><%= link_to course_enrollment.student.first_name, course_enrollment.student, remote:true %></td>

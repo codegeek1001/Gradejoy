@@ -1,4 +1,4 @@
-<%= form_for @student, :url => @url, remote: true do |f| %>
+<%= form_for @student, :url => @url do |f| %>
   <% if @student.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@student.errors.count, "error") %> prohibited this student from being saved:</h2>
@@ -25,8 +25,8 @@
   <%= f.label :grade_level %>
   <%= f.select :grade_level, ("<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>Freshman</option><option>Sophomore</option><option>Junior</option><option>Senior</option>").html_safe %><br /><br />
 
-  <%= f.label :birthdate %>
-  <%= f.date_select :birthdate, start_year: Date.current.year, end_year: 1900 %><br /><br />
+  <%= f.label :birth_date %>
+  <%= f.date_select :birth_date, start_year: Date.current.year, end_year: 1900 %><br /><br />
 
   <div class="actions">
     <%= f.submit "Submit", class:"btn btn-primary" %>

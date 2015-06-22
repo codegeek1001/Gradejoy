@@ -1,0 +1,2 @@
+<%= link_to 'Delete Assignment', course_assignment_path, method: :delete, data: { confirm: 'Are you sure you want to remove this assignment?' }, class: "btn btn-xs btn-danger" %>
+<%= link_to 'Edit Assignment', edit_assignment_path(@course_assignment.assignment), class: "btn btn-xs btn-primary", id: "edit_assignment" %>

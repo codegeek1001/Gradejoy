@@ -31,7 +31,7 @@
 
 <div id="create_course_assignment_form"></div>
 
-<div id="enroll_form"></div>
+<div id="enroll-form"></div>
 
 <div id="edit_grade_form"></div>
 
@@ -42,6 +42,6 @@
 
 <%= link_to "Assignment Categories", categories_path, class: "btn btn-success" %> (Feature in progress)<br /><br />
 
-<%= link_to "Create and Enroll New Student", new_enroll_student_route(@course.id), class: "btn btn-info", id: "enroll_student", remote: true %> <br /><br />
+<%= link_to "Create and Enroll New Student", new_enroll_student_route(@course.id), class: "btn btn-info", id: "enroll-student", remote: true %> <br /><br />
 
 <%= link_to 'Back to Courses List', courses_path, class: "btn btn-primary" %>
