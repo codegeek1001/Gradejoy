@@ -28,7 +28,7 @@ Comment on the Github page or email any questions, comments, or criticisms to ro
 
 Feel free to contribute to this project! The Github Issues (scroll to top and look right) contains tasks that need work.
 
-1. Clone it (`git clone https://github.com/YOUR_USERNAME/gradejoy.git`).
+1. Clone it (`git clone https://github.com/robertlandreaux/gradejoy.git`).
 
 2. Create your feature branch (`git checkout -b my-new-feature`).
 
@@ -37,3 +37,5 @@ Feel free to contribute to this project! The Github Issues (scroll to top and lo
 4. Push to the branch (`git push origin my-new-feature`).
 
 5. Create a new Pull Request on Github.
+
+When running `git pull`, please run `git pull --rebase`. When updating your branch with master, please run `git rebase master`.
