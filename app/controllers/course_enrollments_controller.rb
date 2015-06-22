@@ -42,6 +42,7 @@ class CourseEnrollmentsController < ApplicationController
 
   def mark_inactive
     @course_enrollment.update_attribute(:active, false)
+    redirect_to(:back)
   end
 
   private

@@ -1,17 +1,16 @@
-<%= form_for @assignment do |f| %>
-  <% if @assignment.errors.any? %>
+<%= form_for @course_assignment.assignment do |f| %>
+  <% if @course_assignment.assignment.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@assignment.errors.count, "error") %> prohibited this assignment from being saved:</h2>
 
       <ul>
-      <% @assignment.errors.full_messages.each do |msg| %>
+      <% @course_assignment.assignment.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
 
-  <h3>Edit <%= @assignment.name %></h3>
   <%= f.label :name %> (required)
   <%= f.text_field :name, class: 'form-control form-control-inline' %><br /><br />
 
