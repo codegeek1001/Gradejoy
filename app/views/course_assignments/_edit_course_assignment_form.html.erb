@@ -1,3 +1,4 @@
+<h3>Edit <%= @course_assignment.assignment.name %></h3>
 <%= form_for @course_assignment.assignment do |f| %>
   <% if @course_assignment.assignment.errors.any? %>
     <div id="error_explanation">
