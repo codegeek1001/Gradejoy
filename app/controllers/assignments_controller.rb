@@ -26,7 +26,7 @@ class AssignmentsController < ApplicationController
     @assignments = current_user.assignments
 
     if @assignment.save
-      respond_with(@assignments)
+      redirect_to(:back)
     else
       render :new
     end
@@ -34,7 +34,7 @@ class AssignmentsController < ApplicationController
 
   def update
     if @assignment.update(assignment_params)
-      redirect_to assignments_path
+      redirect_to(:back)
     else
       render :edit
     end

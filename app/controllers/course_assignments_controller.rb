@@ -23,8 +23,7 @@ class CourseAssignmentsController < ApplicationController
     @course_assignments = current_user.course_assignments
 
      if @course_assignment.save
-       #redirect_to course_assignments_path
-       respond_with(@course_assignments)
+       redirect_to(:back)
      else
        render :new
      end
@@ -32,7 +31,7 @@ class CourseAssignmentsController < ApplicationController
 
   def update
     if @course_assignment.update(course_assignment_params)
-      redirect_to course_assignments_path
+      redirect_to(:back)
     else
       render :edit
     end

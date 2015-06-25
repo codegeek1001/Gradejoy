@@ -56,7 +56,6 @@ class CourseEnrollmentsController < ApplicationController
 
     def authorized_user
       @course_enrollment = current_user.course_enrollments.find_by(id: params[:id])
-      @course = current_user.courses.find_by(id: params[:id])
       redirect_to courses_path, notice: "Not authorized to view or edit that course enrollment" if @course_enrollment.nil?
     end
 

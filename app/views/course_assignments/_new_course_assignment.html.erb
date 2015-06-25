@@ -1,5 +1,5 @@
 <tr>
-  <td class="ca-buttons"><%= link_to @course_assignment.assignment.name, @course_assignment.assignment %><p id="course-assignment-buttons<%= @course_assignment.assignment.id.to_s %>" class="course-assignment-buttons"></p></td>
+  <td class="ca-buttons"><%= link_to @course_assignment.assignment.name, @course_assignment.assignment, remote: true %><p id="course-assignment-buttons<%= @course_assignment.assignment.id.to_s %>" class="course-assignment-buttons"></p></td>
   <td><%= link_to @course_assignment.course.name, @course_assignment.course %></td>
   <td><%= @course_assignment.assignment.created_at.strftime("%A, %B %d, %Y, at %I:%M %p") %></td>
   <td><%= @course_assignment.assignment.date_due %></td>
