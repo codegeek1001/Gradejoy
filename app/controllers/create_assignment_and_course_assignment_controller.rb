@@ -13,7 +13,7 @@ class CreateAssignmentAndCourseAssignmentController < ApplicationController
      if @assignment.save
        @course_assignment = current_user.course_assignments.new :assignment_id => @assignment.id, :course_id => @course.id
        if @course_assignment.save
-         respond_with @course
+         redirect_to(:back)
        end
        else
         render :new
