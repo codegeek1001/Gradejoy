@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/robertlandreaux/Gradejoy.png)](https://travis-ci.org/robertlandreaux/Gradejoy)
 
+This project is being rewritten -- https://github.com/robertlandreaux/gradejoyV2
+
 Gradejoy will be an online gradebook application for students and teachers. Currently it is only semi-functional for teachers.
 
 Rails version 4.2.0.
