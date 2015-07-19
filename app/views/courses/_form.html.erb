@@ -23,10 +23,10 @@
   <%= f.time_select :time %><br /><br />
 
   <%= f.label :period %>
-  <%= f.select :period, ("<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option>").html_safe %><br /><br />
+  <%= f.text_field :period %><br /><br />
 
   <%= f.label :section %>
-  <%= f.select :section, ("<option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option>").html_safe %><br /><br />
+  <%= f.text_field :section %><br /><br />
 
   <div class="actions">
     <%= f.submit "Submit", class:"btn btn-primary" %>

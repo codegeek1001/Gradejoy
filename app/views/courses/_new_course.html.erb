@@ -1,7 +1,7 @@
 <tr>
   <td><%= link_to @courses.last.name, @course %></td>
   <td><%= @courses.last.id %></td>
-  <td><%= @courses.last.time.strftime("%H:%M") %></td>
+  <td><%= @courses.last.time.strftime("%A, %B %d, %Y, at %I:%M %p") %></td>
   <td><%= @courses.last.period %></td>
   <td><%= @courses.last.section %></td>
   <td><%= @courses.last.created_at %></td>
