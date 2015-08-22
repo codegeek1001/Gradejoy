@@ -2,21 +2,16 @@ source 'https://rubygems.org'
 
 ruby '2.2.2'
 
-gem 'rails', '4.2.0'
+gem 'rails', '4.2.3'
 gem 'pg'
 gem 'sass-rails'
 gem 'bootstrap-sass'
-gem 'autoprefixer-rails'
-gem 'sprockets-rails'
 gem 'uglifier'
-gem 'coffee-rails'
-gem 'therubyracer', platforms: :ruby
 gem 'jquery-rails'
 gem 'turbolinks'
-gem 'jbuilder'
 gem 'devise'
 gem 'puma'
-gem 'newrelic_rpm'
+gem 'rollbar'
 
 group :development, :test do
   gem 'factory_girl_rails'
@@ -25,10 +20,5 @@ group :development, :test do
 end
 
 group :production do
-  gem 'lograge'
   gem 'rails_12factor'
-end
-
-group :doc do
-  gem 'sdoc', require: false
 end

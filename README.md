@@ -6,7 +6,7 @@ This project is being rewritten -- https://github.com/robertlandreaux/gradejoyV2
 
 Gradejoy will be an online gradebook application for students and teachers. Currently it is only semi-functional for teachers.
 
-Rails version 4.2.0.
+Rails version 4.2.3.
 
 Ruby version 2.2.2.
 
