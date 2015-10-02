@@ -27,7 +27,7 @@ Comment on the Github page or email any questions, comments, or criticisms to ro
 
 ### Contributing
 
-Feel free to contribute to this project! The Github Issues (scroll to top and look right) contains tasks that need work.
+Feel free to contribute to this project or to https://github.com/robertlandreaux/gradejoyV2! The Github Issues (scroll to top and look right) contains tasks that need work.
 
 1. Clone it (`git clone https://github.com/robertlandreaux/gradejoy.git`).
 
