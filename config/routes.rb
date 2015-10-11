@@ -1,22 +1,15 @@
 Rails.application.routes.draw do
   resources :assignments
-
   resources :categories
-
   resources :course_assignments
-
   resources :course_enrollments do
     member do
       put 'mark_inactive'
     end
   end
-
   resources :courses
-
   resources :grades
-
   resources :students
-
   devise_for :users
 
   get "courses/:id/enroll_student/new(.:format)", to: "enroll_student#new"
@@ -41,7 +34,6 @@ Rails.application.routes.draw do
   get "privacy" =>       "pages#privacy"
   get "terms" =>         "pages#terms"
   get "account" =>       "pages#account"
-  get "communication" => "pages#communication"
 
   get '/robots.:format' => 'pages#robots'
   root "pages#index"
